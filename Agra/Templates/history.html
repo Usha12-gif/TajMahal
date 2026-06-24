@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Mahal - History Timeline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css"> 
+</head>
+<body>
+
+    <nav class="taj-navbar">
+        <div class="nav-container">
+            <a href="{% url 'index' %}" class="nav-logo">
+                <span class="logo-text">Taj Mahal</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{% url 'index' %}" class="nav-item">Index</a></li>
+                <li><a href="{% url 'images' %}" class="nav-item">Images</a></li>
+                <li><a href="{% url 'history' %}" class="nav-item active">History</a></li>
+                <li><a href="#night-view" class="nav-item">Night View</a></li>
+                <li><a href="#contact" class="nav-item contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="history-page-wrapper">
+        <div class="history-header">
+            <h1>Chronological History</h1>
+            <p>Trace the timeless legacy of the monument, from its royal conception to its modern-day global heritage status.</p>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="date">1631</span>
+                    <h3>The Tragic Catalyst</h3>
+                    <p>Empress Mumtaz Mahal passes away during childbirth. Grieved by her death, Emperor Shah Jahan vows to construct an unmatched grand mausoleum in her memory.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="date">1632</span>
+                    <h3>Construction Begins</h3>
+                    <p>Groundwork starts along the Yamuna River banks in Agra. Over 20,000 artisans, architects, and stone carvers are gathered across Asia to work on the complex design.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="date">1643</span>
+                    <h3>The Tomb Completion</h3>
+                    <p>The central white marble dome structure is largely completed, while work continues on surrounding structures like the mosque, guest house, and iconic minarets.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="date">1983</span>
+                    <h3>UNESCO World Heritage</h3>
+                    <p>The Taj Mahal is designated a UNESCO World Heritage Site, recognized globally as a masterpiece of human creative genius and Muslim art in India.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mobile Toggle Menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

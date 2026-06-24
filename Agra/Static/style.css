@@ -1,0 +1,372 @@
+/* Core Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', 'Times New Roman', serif; /* Elegant serif font matching historical theme */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar Container styling */
+.taj-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Modern frosted-glass effect */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 24px;
+}
+
+/* Branding Logo */
+.nav-logo {
+    text-decoration: none;
+    color: #1a1a1a;
+}
+
+.logo-text {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #8c764b; /* Royal Marble/Gold Accent tone */
+    text-transform: uppercase;
+}
+
+/* Navigation Links Wrapper */
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+}
+
+/* Single Link styling */
+.nav-item {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+}
+
+/* Gold underline hover animation */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #c5a880;
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+    width: 100%;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: #c5a880;
+}
+
+/* Specialized Contact Us Button */
+.nav-item.contact-btn {
+    background-color: #8c764b;
+    color: #ffffff !important;
+    padding: 10px 22px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-item.contact-btn::after {
+    display: none; /* Disable regular link underline for this button */
+}
+
+.nav-item.contact-btn:hover {
+    background-color: #6e5b38;
+    transform: translateY(-1px);
+}
+
+/* Mobile Toggle Hamburger Button (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #8c764b;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* --- Responsive Media Queries (Mobile & Tablet Layout) --- */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show hamburger button on mobile */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%; /* Sits cleanly right under the header bar */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        padding: 24px 0;
+        gap: 24px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        
+        /* Smooth vertical drop animation hidden state */
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    /* Activated State via JavaScript */
+    .nav-links.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .nav-item.contact-btn {
+        width: 80%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+/* Ensure the list elements align horizontally and share equal basis if needed */
+.nav-links li {
+    list-style: none;
+    display: inline-block;
+    flex-basis: 120px; /* Replaces your inline div style safely */
+    text-align: center;
+}
+/* Styling layout for the images page wrapper */
+.gallery-page-wrapper {
+    padding-top: 120px; /* Gives space so the fixed navbar doesn't cover content */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gallery-header h1 {
+    color: #8c764b;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* Flexbox setup to force items side-by-side cleanly */
+.image-grid-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrap on smaller screens */
+    gap: 20px;       /* Distance between image blocks */
+    justify-content: center;
+}
+
+/* Individual Image Cards */
+.img-card {
+    flex: 1 1 calc(25% - 20px); /* Forces exactly 4 images side-by-side on large monitors */
+    min-width: 250px;           /* Prevents boxes from shrinking too small */
+    background: #fff;
+    border: 1px solid #e2dfd8;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.img-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Keeps image proportions neat without stretching */
+    display: block;
+}
+
+.img-caption {
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    color: #4a4a4a;
+    background-color: #ffffff;
+}
+
+/* Responsive adjustment for Mobile and Tablets */
+@media screen and (max-width: 768px) {
+    .img-card {
+        flex: 1 1 calc(50% - 20px); /* 2 items side-by-side on tablets */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .img-card {
+        flex: 1 1 100%; /* Stacks 1 per row only on tiny mobile devices */
+    }
+}
+/* --- History Page Section Styling --- */
+.history-page-wrapper {
+    padding-top: 120px; /* Offset to sit below your fixed nav */
+    padding-bottom: 60px;
+    background-color: #fdfbf7;
+    min-height: 100vh;
+}
+
+.history-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+}
+
+.history-header h1 {
+    color: #8c764b;
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.history-header p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Timeline Layout Base Container */
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Center vertical line */
+.timeline-line {
+    position: absolute;
+    width: 4px;
+    background-color: #c5a880;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Individual timeline row items */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%; /* Each box occupies exactly half side-by-side */
+    box-sizing: border-box;
+}
+
+/* Left vs Right alignments */
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+/* Custom Dots resting on the center spine */
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #8c764b;
+    border: 4px solid #fdfbf7;
+    border-radius: 50%;
+    top: 25px;
+    z-index: 1;
+}
+
+.timeline-item.left .timeline-dot {
+    right: -10px;
+}
+
+.timeline-item.right .timeline-dot {
+    left: -6px;
+}
+
+/* Actual Card Content Blocks */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: #ffffff;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 3px solid #8c764b;
+}
+
+.timeline-content .date {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #8c764b;
+    margin-bottom: 8px;
+}
+
+.timeline-content h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* --- Responsive Adjustments for Smaller Screens --- */
+@media screen and (max-width: 768px) {
+    /* Push the line to the far left side */
+    .timeline-line {
+        left: 31px;
+    }
+
+    /* Force timeline boxes into a full-width linear layout instead of side-by-side */
+    .timeline-item {
+        width: 100%;
+        padding-left: 55px;
+        padding-right: 25px;
+    }
+
+    .timeline-item.left, 
+    .timeline-item.right {
+        left: 0;
+        text-align: left;
+    }
+
+    /* Reposition dots matching the shifted left track line */
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+        left: 21px;
+    }
+}

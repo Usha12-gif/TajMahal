@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Mahal - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css"> 
+</head>
+<body>
+
+    <nav class="taj-navbar">
+        <div class="nav-container">
+            <a href="{% url 'index' %}" class="nav-logo">
+                <span class="logo-text">Taj Mahal</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{% url 'index' %}" class="nav-item">Index</a></li>
+                <li><a href="{% url 'images' %}" class="nav-item">Images</a></li>
+                <li><a href="{% url 'history' %}" class="nav-item">History</a></li>
+                <li><a href="{% url 'night_view' %}" class="nav-item">Night View</a></li>
+                <li><a href="{% url 'contact_us' %}" class="nav-item contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="contact-page-wrapper">
+        <div class="contact-header">
+            <h1>Get In Touch</h1>
+            <p>Have questions about ticketing, timings, or tour guides? Drop us a message, and our tourism assistance desk will reach out shortly.</p>
+        </div>
+
+        <div class="contact-flex-container">
+            
+            <div class="contact-info-panel">
+                <h3>Official Enquiries</h3>
+                
+                <div class="info-block">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h5>Location</h5>
+                        <p>Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001</p>
+                    </div>
+                </div>
+
+                <div class="info-block">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h5>Helpline Phone</h5>
+                        <p>+91 562 2226431 (ASI Agra Circle)</p>
+                    </div>
+                </div>
+
+                <div class="info-block">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h5>Email Support</h5>
+                        <p>info@tajmahaltourism.gov.in</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-panel">
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="userName">Full Name</label>
+                        <input type="text" id="userName" name="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userEmail">Email Address</label>
+                        <input type="email" id="userEmail" name="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userMessage">Your Message</label>
+                        <textarea id="userMessage" name="message" rows="5" placeholder="Write your enquiry here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-form-btn">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Hamburger Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+    <address>
+        post office:362<br>
+        Agra, Uttar Pradesh 282001<br>
+        <a href="mailto:info@tajmahaltourism.gov.in">info@tajmahaltourism.gov.in</a>
+    </address>
+</body>
+</html>

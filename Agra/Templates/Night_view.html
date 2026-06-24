@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Mahal - Night Viewing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css"> 
+</head>
+<body class="night-theme-body">
+
+    <nav class="taj-navbar night-variant">
+        <div class="nav-container">
+            <a href="{% url 'index' %}" class="nav-logo">
+                <span class="logo-text">Taj Mahal</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{% url 'index' %}" class="nav-item">Index</a></li>
+                <li><a href="{% url 'images' %}" class="nav-item">Images</a></li>
+                <li><a href="{% url 'history' %}" class="nav-item">History</a></li>
+                <li><a href="{% url 'night_view' %}" class="nav-item active">Night View</a></li>
+                <li><a href="{% url 'contact_us' %}" class="nav-item contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="night-page-wrapper">
+        <header class="night-header">
+            <h1>The Moonlit Wonder</h1>
+            <p>Witnessing the ivory-white marble reflecting the celestial glow of a full moon is an ethereal experience. Plan your exclusive night tour parameters below.</p>
+        </header>
+
+        <section class="night-info-grid">
+            
+            <div class="night-card">
+                <div class="card-icon"><i class="fas fa-moon"></i></div>
+                <h3>Viewing Schedule</h3>
+                <p>Night viewing is allowed strictly 5 nights in a month: on the full moon night, and two nights before and after it (except on Fridays and the month of Ramzan).</p>
+            </div>
+
+            <div class="night-card">
+                <div class="card-icon"><i class="fas fa-clock"></i></div>
+                <h3>Timings & Batches</h3>
+                <p>Authorized access opens from 8:30 PM to 12:30 AM. Visitors are organized into 8 distinct batches of 50 people each, with a max duration of 30 minutes per slot.</p>
+            </div>
+
+            <div class="night-card">
+                <div class="card-icon"><i class="fas fa-ticket-alt"></i></div>
+                <h3>Ticketing Policy</h3>
+                <p>Tickets must be booked 24 hours in advance from the Archaeological Survey of India (ASI) office. Standard identification details are mandatory for verification.</p>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // Hamburger Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

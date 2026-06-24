@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Mahal - Image Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Points to your static folder CSS -->
+    <link rel="stylesheet" href="/static/style.css"> 
+</head>
+<body>
+
+    <!-- Tajmahal Navbar -->
+    <nav class="taj-navbar">
+        <div class="nav-container">
+            <a href="{% url 'index' %}" class="nav-logo">
+                <span class="logo-text">Taj Mahal</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{% url 'index' %}" class="nav-item">Index</a></li>
+                <li><a href="{% url 'images' %}" class="nav-item active">Images</a></li>
+                <li><a href="{% url 'history' %}" class="nav-item">History</a></li>
+                <li><a href="#night-view" class="nav-item">Night View</a></li>
+                <li><a href="#contact" class="nav-item contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dedicated Image Page Content -->
+    <main class="gallery-page-wrapper">
+        <div class="gallery-header">
+            <h1>Taj Mahal Image Gallery</h1>
+            <p>A visual journey through the architecture and beauty of the world's most famous monument.</p>
+        </div>
+
+        <!-- The Image Grid Layout -->
+        <div class="image-grid-container">
+            <div class="img-card">
+                <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600" alt="Taj Mahal Front View">
+                <div class="img-caption">Front Facade</div>
+            </div>
+            <div class="img-card">
+                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=600" alt="Taj Mahal Reflection">
+                <div class="img-caption">River Reflection</div>
+            </div>
+            <div class="img-card">
+                <img src="https://images.unsplash.com/photo-1592635196078-9fdc757f27f4?w=600" alt="Taj Mahal Marble Details">
+                <div class="img-caption">Detail Inlay Work</div>
+            </div>
+            <div class="img-card">
+                <img src="https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?w=600" alt="Taj Mahal Sunset">
+                <div class="img-caption">Sunset View</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Hamburger Menu Logic
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

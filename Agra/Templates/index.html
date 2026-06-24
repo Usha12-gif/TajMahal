@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Mahal Tourism</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+    <nav class="taj-navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">Taj Mahal</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{% url 'index' %}" class="nav-item active">index</a></li>
+                <li><a href="{% url 'images' %}" class="nav-item">Images</a></li>
+                <li><a href="{% url 'history' %}" class="nav-item">History</a></li>
+                <li><a href="{% url 'night_view' %}" class="nav-item">Night View</a></li>
+                <li><a href="{% url 'contact_us' %}" class="nav-item contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="height: 2000px; padding-top: 100px; background: #fdfbf7; text-align: center;">
+        <h2>Scroll down to see the sticky navigation effect!</h2>
+    </div>
+
+    <script>
+        // Simple JavaScript to handle the mobile hamburger toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const toggleIcon = menuToggle.querySelector('i');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            
+            // Toggle icon between bars and X close mark
+            if (navLinks.classList.contains('show')) {
+                toggleIcon.className = 'fas fa-times';
+            } else {
+                toggleIcon.className = 'fas fa-bars';
+            }
+        });
+
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('.nav-item').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+                toggleIcon.className = 'fas fa-bars';
+            });
+        });
+    </script>
+</body>
+</html>
